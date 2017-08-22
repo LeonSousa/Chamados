@@ -40,13 +40,13 @@ public class AbertosActivity extends AppCompatActivity {
     private void popularAbertos() {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://186.233.7.70/")
+                .baseUrl("http://172.31.31.2/suporte/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        RequestService request = (RequestService) retrofit.create(Abertos.class);
+        RequestService requestService = retrofit.create(RequestService.class);
         String tecnico = "leonardo";
-        Call<Abertos> call = request.listAbertos(tecnico);
+        Call<Abertos> call = requestService.listAbertos(tecnico);
 
         call.enqueue(new Callback<Abertos>() {
             @Override

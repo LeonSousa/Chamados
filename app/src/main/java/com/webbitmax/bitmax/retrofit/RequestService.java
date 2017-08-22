@@ -15,10 +15,10 @@ import retrofit2.http.Path;
 
 public interface RequestService {
 
-    @GET("suporte/cabertos/{tecnico}")
+    @GET("chamadosapi/cabertos/{tecnico}")
     Call<Abertos> listAbertos(@Path("tecnico") String tecnico);
 
-    @GET("suporte/cabertos/{id}")
+    @GET("chamadosapi/cabertos/{id}")
     Call<Chamado> getUnico(@Path("id") int id);
 
 
