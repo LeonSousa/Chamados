@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity
 
     String teste;
     String Leon;
+    String testeWargas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
