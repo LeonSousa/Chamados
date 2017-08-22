@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     String teste;
+    String Leon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
