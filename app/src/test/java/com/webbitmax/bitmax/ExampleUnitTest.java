@@ -1,8 +1,5 @@
 package com.webbitmax.bitmax;
 
-import com.google.gson.Gson;
-import com.webbitmax.bitmax.model.Abertos;
-import com.webbitmax.bitmax.retrofit.RequestService;
 
 import org.junit.Test;
 
