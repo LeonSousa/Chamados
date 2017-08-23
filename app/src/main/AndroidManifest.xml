@@ -23,7 +23,7 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".AbertosActivity" />
-        <activity android:name=".DetalhesActivity"></activity>
+        <activity android:name=".DetalhesActivity" android:parentActivityName=".AbertosActivity"></activity>
     </application>
 
 </manifest>
