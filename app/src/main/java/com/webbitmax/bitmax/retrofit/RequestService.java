@@ -26,9 +26,4 @@ public interface RequestService {
     @GET("chamadosapi/cabertos/{id}")
     Call<Chamado> getUnico(@Path("id") int id);
 
-    public static final Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://186.233.7.20/suporte/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-
 }
