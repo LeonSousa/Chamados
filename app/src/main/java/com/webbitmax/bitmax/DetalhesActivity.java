@@ -13,6 +13,7 @@ public class DetalhesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         Bundle bundle = getIntent().getExtras();
