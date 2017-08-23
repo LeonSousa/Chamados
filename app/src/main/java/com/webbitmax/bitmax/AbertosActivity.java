@@ -37,6 +37,7 @@ public class AbertosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_abertos);
         getSupportActionBar().setTitle("Chamados");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
