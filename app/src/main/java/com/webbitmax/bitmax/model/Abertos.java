@@ -1,5 +1,6 @@
 package com.webbitmax.bitmax.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,9 +10,32 @@ import java.util.List;
 public class Abertos {
 
     List<Chamado> chamados;
+    //alteraçao provisoria, enquanto corrige a api
+    List<Chamado> abertos;
+    int registros;
+
+    public Abertos() {
+        this.abertos = new ArrayList<>();
+    }
+
+    public List<Chamado> getAbertos() {
+        return abertos;
+    }
+
+    public void setAbertos(List<Chamado> abertos) {
+        this.abertos = abertos;
+    }
+
+    public int getRegistros() {
+        return registros;
+    }
+
+    public void setRegistros(int registros) {
+        this.registros = registros;
+    }
 
     public List<Chamado> getChamados() {
-        return chamados;
+        return abertos;
     }
 
     public void setChamados(List<Chamado> chamados) {

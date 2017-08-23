@@ -8,15 +8,15 @@ import java.io.Serializable;
 
 public class Chamado implements Serializable {
 
-    int id;
+    String id;
     String tecnico;
-    int numero;
+    String numero;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -28,11 +28,11 @@ public class Chamado implements Serializable {
         this.tecnico = tecnico;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 }

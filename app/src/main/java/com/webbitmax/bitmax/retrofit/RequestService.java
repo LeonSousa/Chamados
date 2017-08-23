@@ -6,6 +6,8 @@ import com.webbitmax.bitmax.model.Chamado;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
@@ -18,8 +20,15 @@ public interface RequestService {
     @GET("chamadosapi/cabertos/{tecnico}")
     Call<Abertos> listAbertos(@Path("tecnico") String tecnico);
 
+    @GET("chamadosapi/cabertos/leonardo")
+    Call<Abertos> teste();
+
     @GET("chamadosapi/cabertos/{id}")
     Call<Chamado> getUnico(@Path("id") int id);
 
+    public static final Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl("http://186.233.7.20/suporte/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
 
 }

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.webbitmax.bitmax.adapters.AdapterAbertos;
@@ -38,21 +39,15 @@ public class AbertosActivity extends AppCompatActivity {
     }
 
     private void popularAbertos() {
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.31.31.2/suporte/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        RequestService requestService = retrofit.create(RequestService.class);
+        RequestService requestService = RequestService.retrofit.create(RequestService.class);
         String tecnico = "leonardo";
         Call<Abertos> call = requestService.listAbertos(tecnico);
 
         call.enqueue(new Callback<Abertos>() {
             @Override
             public void onResponse(Call<Abertos> call, Response<Abertos> response) {
-                Abertos abertos = response.body();
-
+                abertos = response.body();
+                Log.d("wrgs", "opa carregou");
                 adapterAbertos = new AdapterAbertos(abertos);
                 recyclerView.setAdapter(adapterAbertos);
 
@@ -63,9 +58,6 @@ public class AbertosActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Erro: "+t.toString(), Toast.LENGTH_LONG).show();
             }
         });
-
-
-
     }
 
     public void chamarDetalhes(Chamado chamado){
