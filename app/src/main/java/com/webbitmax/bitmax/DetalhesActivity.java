@@ -19,5 +19,7 @@ public class DetalhesActivity extends AppCompatActivity {
 
         chamado = (Chamado) bundle.get("chamado");
 
+
+
     }
 }

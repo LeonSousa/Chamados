@@ -15,7 +15,7 @@ import retrofit2.http.Path;
  * Created by leonardo on 21/08/17.
  */
 
-public interface RequestService {
+public interface RequestInterface {
 
     @GET("chamadosapi/cabertos/{tecnico}")
     Call<Abertos> listAbertos(@Path("tecnico") String tecnico);

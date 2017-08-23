@@ -1,7 +1,6 @@
 package com.webbitmax.bitmax;
 
 import android.content.Intent;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,7 +11,8 @@ import android.widget.Toast;
 import com.webbitmax.bitmax.adapters.AdapterAbertos;
 import com.webbitmax.bitmax.model.Abertos;
 import com.webbitmax.bitmax.model.Chamado;
-import com.webbitmax.bitmax.retrofit.RequestService;
+import com.webbitmax.bitmax.retrofit.ApiService;
+import com.webbitmax.bitmax.retrofit.RequestInterface;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,12 +40,9 @@ public class AbertosActivity extends AppCompatActivity {
 
     private void popularAbertos() {
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://186.233.7.29/suporte/")
-                .build();
+        //retrofit
+        RequestInterface requestService = ApiService.getApiService();
 
-        RequestService requestService = retrofit.create(RequestService.class);
         String tecnico = "leonardo";
         Call<Abertos> call = requestService.listAbertos(tecnico);
 
