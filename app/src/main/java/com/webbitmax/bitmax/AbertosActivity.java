@@ -36,6 +36,7 @@ public class AbertosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_abertos);
+        getSupportActionBar().setTitle("Chamados");
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
@@ -60,6 +61,8 @@ public class AbertosActivity extends AppCompatActivity {
                 adapterAbertos = new AdapterAbertos(abertos);
                 recyclerView.setAdapter(adapterAbertos);
                 progressBar.setVisibility(View.INVISIBLE);
+
+                getSupportActionBar().setSubtitle(abertos.getRegistros()+" abertos");
             }
 
             @Override
