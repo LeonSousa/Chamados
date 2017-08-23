@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.webbitmax.bitmax.adapters.AdapterAbertos;
@@ -23,6 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AbertosActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+    ProgressBar progressBar;
     AdapterAbertos adapterAbertos;
     Abertos abertos;
 
@@ -32,6 +38,7 @@ public class AbertosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_abertos);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
+        progressBar = (ProgressBar) findViewById(R.id.progressbar);
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -40,7 +47,7 @@ public class AbertosActivity extends AppCompatActivity {
 
     private void popularAbertos() {
 
-        //retrofit
+        progressBar.setVisibility(View.VISIBLE);
         RequestInterface requestService = ApiService.getApiService();
 
         String tecnico = "leonardo";
@@ -50,15 +57,18 @@ public class AbertosActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Abertos> call, Response<Abertos> response) {
                 abertos = response.body();
-                Log.d("wrgs", "opa carregou");
                 adapterAbertos = new AdapterAbertos(abertos);
                 recyclerView.setAdapter(adapterAbertos);
-
+                progressBar.setVisibility(View.INVISIBLE);
             }
 
             @Override
             public void onFailure(Call<Abertos> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Erro: "+t.toString(), Toast.LENGTH_LONG).show();
+                progressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Erro de comunicação com o servidor",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -69,5 +79,22 @@ public class AbertosActivity extends AppCompatActivity {
         it.putExtra("chamado", chamado);
         startActivity(it);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_abertos, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.menu_atualizar:
+                popularAbertos();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

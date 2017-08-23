@@ -20,24 +20,8 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        RequestService requestService = RequestService.retrofit.create(RequestService.class);
 
-        Call<Abertos> call = requestService.teste();
-
-
-        call.enqueue(new Callback<Abertos>() {
-            @Override
-            public void onResponse(Call<Abertos> call, Response<Abertos> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<Abertos> call, Throwable t) {
-                System.out.print("opa2");
-            }
-        });
-
-        System.out.print(call.isExecuted());
+        System.out.print("teste");
 
     }
 }

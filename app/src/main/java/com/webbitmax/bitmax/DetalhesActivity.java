@@ -16,10 +16,8 @@ public class DetalhesActivity extends AppCompatActivity {
 
 
         Bundle bundle = getIntent().getExtras();
-
         chamado = (Chamado) bundle.get("chamado");
-
-
-
+        getSupportActionBar().setTitle(chamado.getTecnico());
+        getSupportActionBar().setSubtitle("Id: "+chamado.getNumero());
     }
 }
