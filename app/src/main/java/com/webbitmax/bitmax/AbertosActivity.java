@@ -52,7 +52,7 @@ public class AbertosActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         RequestInterface requestService = ApiService.getApiService();
 
-        String tecnico = "leonardo";
+        String tecnico = "sistema";
         Call<Abertos> call = requestService.listAbertos(tecnico);
 
         call.enqueue(new Callback<Abertos>() {
