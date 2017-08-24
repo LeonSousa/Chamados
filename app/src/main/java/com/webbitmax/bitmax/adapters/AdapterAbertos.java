@@ -66,7 +66,7 @@ public class AdapterAbertos extends RecyclerView.Adapter<AdapterAbertos.MyViewHo
                     final AbertosActivity activity = (AbertosActivity) v.getContext();
                     AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
 
-                    builder.setMessage("Texto para escolher?")
+                    builder.setMessage("Deseja iniciar esse chamado?")
                             .setCancelable(false)
                             .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                                 @Override
