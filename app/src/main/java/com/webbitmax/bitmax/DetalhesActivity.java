@@ -14,7 +14,9 @@ import io.realm.RealmConfiguration;
 public class DetalhesActivity extends AppCompatActivity {
 
     Chamado chamado;
-    TextView tv_tecnico, tv_nome, tv_endereco;
+    TextView tv_tecnico, tv_tipo, tv_prazo, tv_nome, tv_endereco, tv_complem,
+            tv_bairro, tv_cidade, tv_telefone, tv_celular, tv_login, tv_senha, tv_plano, tv_mensagem;
+
     Realm realm;
 
     @Override
@@ -27,8 +29,19 @@ public class DetalhesActivity extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
 
 
+        tv_tipo  = (TextView) findViewById(R.id.value_tipo);
+        tv_prazo  = (TextView) findViewById(R.id.value_prazo);
         tv_nome  = (TextView) findViewById(R.id.value_nome);
         tv_endereco = (TextView) findViewById(R.id.value_endereco);
+        tv_complem  = (TextView) findViewById(R.id.value_complemtno);
+        tv_bairro = (TextView) findViewById(R.id.value_bairro);
+        tv_cidade  = (TextView) findViewById(R.id.value_cidade);
+        tv_telefone  = (TextView) findViewById(R.id.value_telefone);
+        tv_celular  = (TextView) findViewById(R.id.value_celular);
+        tv_login = (TextView) findViewById(R.id.value_login);
+        tv_senha = (TextView) findViewById(R.id.value_senha);
+        tv_plano  = (TextView) findViewById(R.id.value_plano);
+        tv_mensagem  = (TextView) findViewById(R.id.value_mensagem);
 
         Bundle bundle = getIntent().getExtras();
         String id = bundle.getString("chamadoId");
@@ -37,8 +50,19 @@ public class DetalhesActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Detalhe");
 
+        tv_tipo.setText(chamado.getTipo());
+        tv_prazo.setText(chamado.getPrazodata());
         tv_nome.setText(chamado.getCliente_nome());
         tv_endereco.setText(chamado.getCliente_endereco());
+        tv_complem.setText(chamado.getComplemento());
+        tv_bairro.setText(chamado.getCliente_bairro());
+        tv_cidade.setText(chamado.getCliente_cidade());
+        tv_telefone.setText(chamado.getTelefone());
+        tv_celular.setText(chamado.getCelular());
+        tv_login.setText(chamado.getCliente_login());
+        tv_senha.setText(chamado.getCliente_senha());
+        tv_mensagem.setText(chamado.getMensagem());
+
     }
 
     @Override
