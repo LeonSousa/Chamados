@@ -12,7 +12,7 @@ public class ApiService {
     /********
      * URLS
      *******/
-    private static final String ROOT_URL = "http://186.233.7.29/suporte/";
+    private static final String ROOT_URL = "http://186.233.7.70/suporte/";
 
     /**
      * Get Retrofit Instance

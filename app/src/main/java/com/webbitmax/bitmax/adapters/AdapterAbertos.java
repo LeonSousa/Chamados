@@ -1,5 +1,6 @@
 package com.webbitmax.bitmax.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
@@ -38,6 +39,7 @@ public class AdapterAbertos extends RecyclerView.Adapter<AdapterAbertos.MyViewHo
         return holder;
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(AdapterAbertos.MyViewHolder holder, int position) {
         Chamado chamado = chamados.get(position);
@@ -45,6 +47,8 @@ public class AdapterAbertos extends RecyclerView.Adapter<AdapterAbertos.MyViewHo
         holder.tv_id.setText(chamado.getId()+"");
         holder.tv_numero.setText(chamado.getNumero());
         holder.tv_tecnico.setText(chamado.getTecnico());
+
+
     }
 
     @Override

@@ -83,7 +83,7 @@ public class FecharChamadoFragment extends DialogFragment {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
                         getDialog().cancel();
-                        Log.d("wrgs", response.body());
+
                         Toast.makeText(getActivity().getApplicationContext(), "Fechado com sucesso", Toast.LENGTH_LONG).show();
                     }
 

@@ -31,7 +31,32 @@ public class Chamado extends RealmObject implements Serializable {
     String groupname;
     String up;
     String down;
+    String status;
+    Boolean alterado;
 
+    public String getSuporte_id() {
+        return suporte_id;
+    }
+
+    public void setSuporte_id(String suporte_id) {
+        this.suporte_id = suporte_id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Boolean getAlterado() {
+        return alterado;
+    }
+
+    public void setAlterado(Boolean alterado) {
+        this.alterado = alterado;
+    }
 
     public String getId() {
         return suporte_id;

@@ -37,7 +37,7 @@ public class AbertosActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ProgressBar progressBar;
     AdapterAbertos adapterAbertos;
-    Abertos abertos;
+    RequestInterface requestService;
     Realm realm;
 
     @Override
@@ -71,7 +71,7 @@ public class AbertosActivity extends AppCompatActivity {
     private void atualizar() {
 
         progressBar.setVisibility(View.VISIBLE);
-        RequestInterface requestService = ApiService.getApiService();
+        requestService = ApiService.getApiService();
 
         String tecnico = "sistema";
         Call<Abertos> call = requestService.listAbertos(tecnico);
@@ -105,7 +105,10 @@ public class AbertosActivity extends AppCompatActivity {
         });
     }
 
-    public void chamarDetalhes(Chamado chamado){
+    public void chamarDetalhes(final Chamado chamado){
+
+        
+
         Intent it = new Intent(getApplicationContext(), DetalhesActivity.class);
         it.putExtra("chamadoId", chamado.getId());
         startActivity(it);

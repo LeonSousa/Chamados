@@ -30,6 +30,10 @@ public interface RequestInterface {
     Call<Chamado> getUnico(@Path("id") int id);
 
     @FormUrlEncoded
+    @POST("chamadosapi/abrir")
+    Call<String> abrirChamado(@Field("id") String id, @Field("data") String data);
+
+    @FormUrlEncoded
     @POST("chmadasapi/fechar")
     Call<String> fecharChamado(
             @Field("id") String id,
