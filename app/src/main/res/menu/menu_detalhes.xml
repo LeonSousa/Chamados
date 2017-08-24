@@ -4,6 +4,16 @@
 
     <item
         android:title="fechar"
-        app:showAsAction="always"
+        app:showAsAction="never"
         android:id="@+id/menu_fechar"/>
+    
+    <item
+        android:title="item 01"
+        app:showAsAction="never"
+        android:id="@+id/menu_1"/>
+    
+    <item
+        android:title="item 02"
+        app:showAsAction="never"
+        android:id="@+id/menu_2"/>
 </menu>
