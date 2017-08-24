@@ -1,5 +1,8 @@
 package com.webbitmax.bitmax;
 
+import android.app.FragmentManager;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,9 +10,15 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.webbitmax.bitmax.model.Chamado;
+import com.webbitmax.bitmax.retrofit.ApiService;
+import com.webbitmax.bitmax.retrofit.RequestInterface;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class DetalhesActivity extends AppCompatActivity {
 
@@ -65,6 +74,12 @@ public class DetalhesActivity extends AppCompatActivity {
 
     }
 
+    public void fecharChamado(Chamado chamado){
+        FragmentManager fm = getFragmentManager();
+        FecharChamadoFragment fecharChamadoFragment = FecharChamadoFragment.newInstance(chamado);
+        fecharChamadoFragment.show(fm, "fechar_chamado");
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_detalhes, menu);
@@ -76,7 +91,21 @@ public class DetalhesActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.menu_fechar:
-                
+                AlertDialog.Builder builder = new AlertDialog.Builder(DetalhesActivity.this);
+                builder.setCancelable(false);
+                builder.setMessage("Confirma fechar este chamado?");
+                builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        fecharChamado(chamado);
+                    }
+                }).setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                }).show();
+
 
         }
         return super.onOptionsItemSelected(item);

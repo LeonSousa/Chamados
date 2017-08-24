@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/label_tipo"
                     android:fontFamily="sans-serif-bold"
                     android:layout_width="wrap_content"
@@ -33,19 +33,25 @@
                 <TextView
                     android:layout_toRightOf="@+id/label_tipo"
                     android:fontFamily="sans-serif-thin"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/value_tipo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Suporte" />
             </RelativeLayout>
+            
+            <View
+                android:background="#ccc"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
+            
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/label_prazo"
                     android:fontFamily="sans-serif-bold"
                     android:layout_width="wrap_content"
@@ -55,19 +61,24 @@
                 <TextView
                     android:layout_toRightOf="@+id/label_prazo"
                     android:fontFamily="sans-serif-thin"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/value_prazo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="12/8/2017 13:15:50" />
             </RelativeLayout>
+            
+            <View
+                android:background="#ccc"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/label_nome"
                     android:fontFamily="sans-serif-bold"
                     android:layout_width="wrap_content"
@@ -77,19 +88,24 @@
                 <TextView
                     android:layout_toRightOf="@+id/label_nome"
                     android:fontFamily="sans-serif-thin"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/value_nome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Wargas Delmondes Teixeira" />
             </RelativeLayout>
+            
+            <View
+                android:background="#ccc"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/label_endereco"
                     android:fontFamily="sans-serif-bold"
                     android:layout_width="wrap_content"
@@ -99,19 +115,24 @@
                 <TextView
                     android:layout_toRightOf="@+id/label_endereco"
                     android:fontFamily="sans-serif-thin"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/value_endereco"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Rua do Ginasio" />
             </RelativeLayout>
+            
+            <View
+                android:background="#ccc"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/label_complemento"
                     android:fontFamily="sans-serif-bold"
                     android:layout_width="wrap_content"
@@ -121,12 +142,17 @@
                 <TextView
                     android:layout_toRightOf="@+id/label_complemento"
                     android:fontFamily="sans-serif-thin"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/value_complemtno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Proximo a praça da matriz" />
             </RelativeLayout>
+            
+            <View
+                android:background="#ccc"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
 
 
             <RelativeLayout
@@ -134,7 +160,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/label_bairro"
                     android:fontFamily="sans-serif-bold"
                     android:layout_width="wrap_content"
@@ -144,19 +170,24 @@
                 <TextView
                     android:layout_toRightOf="@+id/label_bairro"
                     android:fontFamily="sans-serif-thin"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/value_bairro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="SOCORRO" />
             </RelativeLayout>
+            
+            <View
+                android:background="#ccc"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/label_cidade"
                     android:fontFamily="sans-serif-bold"
                     android:layout_width="wrap_content"
@@ -166,19 +197,24 @@
                 <TextView
                     android:layout_toRightOf="@+id/label_cidade"
                     android:fontFamily="sans-serif-thin"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/value_cidade"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Santa Filomena" />
             </RelativeLayout>
+            
+            <View
+                android:background="#ccc"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/label_telefone"
                     android:fontFamily="sans-serif-bold"
                     android:layout_width="wrap_content"
@@ -188,19 +224,24 @@
                 <TextView
                     android:layout_toRightOf="@+id/label_telefone"
                     android:fontFamily="sans-serif-thin"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/value_telefone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="(87) 3969-3024" />
             </RelativeLayout>
+            
+            <View
+                android:background="#ccc"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/label_celular"
                     android:fontFamily="sans-serif-bold"
                     android:layout_width="wrap_content"
@@ -210,19 +251,24 @@
                 <TextView
                     android:layout_toRightOf="@+id/label_celular"
                     android:fontFamily="sans-serif-thin"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/value_celular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="(87) 98167-1010" />
             </RelativeLayout>
+            
+            <View
+                android:background="#ccc"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/label_login"
                     android:fontFamily="sans-serif-bold"
                     android:layout_width="wrap_content"
@@ -232,19 +278,24 @@
                 <TextView
                     android:layout_toRightOf="@+id/label_login"
                     android:fontFamily="sans-serif-thin"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/value_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Leonardo" />
             </RelativeLayout>
+            
+            <View
+                android:background="#ccc"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/label_senha"
                     android:fontFamily="sans-serif-bold"
                     android:layout_width="wrap_content"
@@ -254,12 +305,17 @@
                 <TextView
                     android:layout_toRightOf="@+id/label_senha"
                     android:fontFamily="sans-serif-thin"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/value_senha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="123456" />
             </RelativeLayout>
+            
+            <View
+                android:background="#ccc"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
 
 
             <RelativeLayout
@@ -267,7 +323,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/label_plano"
                     android:fontFamily="sans-serif-bold"
                     android:layout_width="wrap_content"
@@ -277,19 +333,24 @@
                 <TextView
                     android:layout_toRightOf="@+id/label_plano"
                     android:fontFamily="sans-serif-thin"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/value_plano"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="1MB / 800k Up / 1M Down" />
             </RelativeLayout>
+            
+            <View
+                android:background="#ccc"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/label_mensagem"
                     android:fontFamily="sans-serif-bold"
                     android:layout_width="wrap_content"
@@ -299,12 +360,17 @@
                 <TextView
                     android:layout_toRightOf="@+id/label_mensagem"
                     android:fontFamily="sans-serif-thin"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:id="@+id/value_mensagem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="" />
             </RelativeLayout>
+            
+            <View
+                android:background="#ccc"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
 
         </LinearLayout>
 

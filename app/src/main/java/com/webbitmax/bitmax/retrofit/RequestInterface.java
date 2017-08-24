@@ -9,6 +9,7 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -28,7 +29,14 @@ public interface RequestInterface {
     @GET("chamadosapi/cabertos/{id}")
     Call<Chamado> getUnico(@Path("id") int id);
 
+    @FormUrlEncoded
     @POST("chmadasapi/fechar")
-    Call<String> fecharChamado(@Field("chamado_id") String id);
+    Call<String> fecharChamado(
+            @Field("id") String id,
+            @Field("mcabo") String mcabo,
+            @Field("qconector") String qconector,
+            @Field("relatorio") String relatorio,
+            @Field("resolvido") String resolvido
+    );
 
 }
