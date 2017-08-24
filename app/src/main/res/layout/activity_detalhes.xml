@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
     tools:context="com.webbitmax.bitmax.DetalhesActivity">
 
     <android.support.v7.widget.CardView
@@ -12,12 +13,56 @@
         android:padding="10dp"
         android:id="@+id/cardView">
 
-        <TextView
-            android:padding="15dp"
-            android:id="@+id/textView_nome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="TextView" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:padding="15dp"
+                    android:id="@+id/label_nome"
+                    android:fontFamily="sans-serif-bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nome:" />
+
+                <TextView
+                    android:layout_toRightOf="@+id/label_nome"
+                    android:fontFamily="sans-serif-thin"
+                    android:padding="15dp"
+                    android:id="@+id/value_nome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Wargas Delmondes Teixeira" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:padding="15dp"
+                    android:id="@+id/label_endereco"
+                    android:fontFamily="sans-serif-bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Endereço:" />
+
+                <TextView
+                    android:layout_toRightOf="@+id/label_endereco"
+                    android:fontFamily="sans-serif-thin"
+                    android:padding="15dp"
+                    android:id="@+id/value_endereco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rua do Ginasio" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
     </android.support.v7.widget.CardView>
 </RelativeLayout>

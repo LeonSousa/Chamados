@@ -14,7 +14,7 @@ import io.realm.RealmConfiguration;
 public class DetalhesActivity extends AppCompatActivity {
 
     Chamado chamado;
-    TextView tv_tecnico;
+    TextView tv_tecnico, tv_nome, tv_endereco;
     Realm realm;
 
     @Override
@@ -26,8 +26,9 @@ public class DetalhesActivity extends AppCompatActivity {
         Realm.setDefaultConfiguration(new RealmConfiguration.Builder(this).build());
         realm = Realm.getDefaultInstance();
 
-        tv_tecnico = (TextView) findViewById(R.id.textView_nome);
 
+        tv_nome  = (TextView) findViewById(R.id.value_nome);
+        tv_endereco = (TextView) findViewById(R.id.value_endereco);
 
         Bundle bundle = getIntent().getExtras();
         String id = bundle.getString("chamadoId");
@@ -37,7 +38,8 @@ public class DetalhesActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(chamado.getTecnico());
         getSupportActionBar().setSubtitle("Id: "+chamado.getNumero());
 
-        tv_tecnico.setText(chamado.getTecnico());
+        tv_nome.setText(chamado.getCliente_nome());
+        tv_endereco.setText(chamado.getCliente_endereco());
     }
 
     @Override
