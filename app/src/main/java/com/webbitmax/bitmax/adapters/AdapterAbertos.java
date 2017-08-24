@@ -64,7 +64,7 @@ public class AdapterAbertos extends RecyclerView.Adapter<AdapterAbertos.MyViewHo
                 @Override
                 public void onClick(View v) {
                     final AbertosActivity activity = (AbertosActivity) v.getContext();
-                    AlertDialog.Builder builder = new AlertDialog.Builder(activity.getApplicationContext());
+                    AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
 
                     builder.setMessage("Texto para escolher?")
                             .setCancelable(false)
@@ -80,7 +80,8 @@ public class AdapterAbertos extends RecyclerView.Adapter<AdapterAbertos.MyViewHo
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.cancel();
                                 }
-                            }).show();
+                            })
+                            .show();
 
                 }
             });
