@@ -1,5 +1,7 @@
 package com.webbitmax.bitmax.adapters;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,11 +63,25 @@ public class AdapterAbertos extends RecyclerView.Adapter<AdapterAbertos.MyViewHo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int position = getAdapterPosition();
+                    final AbertosActivity activity = (AbertosActivity) v.getContext();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(activity.getApplicationContext());
 
-                    AbertosActivity activity = (AbertosActivity) v.getContext();
+                    builder.setMessage("Texto para escolher?")
+                            .setCancelable(false)
+                            .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    int position = getAdapterPosition();
+                                    activity.chamarDetalhes(abertos.getChamados().get(position));
+                                }
+                            })
+                            .setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
 
-                    activity.chamarDetalhes(abertos.getChamados().get(position));
                 }
             });
         }
