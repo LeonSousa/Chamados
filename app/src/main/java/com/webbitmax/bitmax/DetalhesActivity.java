@@ -8,10 +8,14 @@ import android.widget.TextView;
 
 import com.webbitmax.bitmax.model.Chamado;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 public class DetalhesActivity extends AppCompatActivity {
 
     Chamado chamado;
     TextView tv_tecnico;
+    Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +23,17 @@ public class DetalhesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detalhes);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Realm.setDefaultConfiguration(new RealmConfiguration.Builder(this).build());
+        realm = Realm.getDefaultInstance();
+
         tv_tecnico = (TextView) findViewById(R.id.textView_nome);
 
 
         Bundle bundle = getIntent().getExtras();
-        chamado = (Chamado) bundle.get("chamado");
+        String id = bundle.getString("chamadoId");
+
+        chamado = realm.where(Chamado.class).equalTo("suporte_id", id).findFirst();
+
         getSupportActionBar().setTitle(chamado.getTecnico());
         getSupportActionBar().setSubtitle("Id: "+chamado.getNumero());
 

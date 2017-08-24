@@ -13,16 +13,18 @@ import com.webbitmax.bitmax.R;
 import com.webbitmax.bitmax.model.Abertos;
 import com.webbitmax.bitmax.model.Chamado;
 
+import io.realm.RealmResults;
+
 /**
  * Created by leonardo on 21/08/17.
  */
 
 public class AdapterAbertos extends RecyclerView.Adapter<AdapterAbertos.MyViewHolder> {
 
-    Abertos abertos;
+    RealmResults<Chamado> chamados;
 
-    public AdapterAbertos(Abertos abertos) {
-        this.abertos = abertos;
+    public AdapterAbertos(RealmResults<Chamado> chamados) {
+        this.chamados = chamados;
     }
 
     @Override
@@ -38,7 +40,7 @@ public class AdapterAbertos extends RecyclerView.Adapter<AdapterAbertos.MyViewHo
 
     @Override
     public void onBindViewHolder(AdapterAbertos.MyViewHolder holder, int position) {
-        Chamado chamado = abertos.getChamados().get(position);
+        Chamado chamado = chamados.get(position);
 
         holder.tv_id.setText(chamado.getId()+"");
         holder.tv_numero.setText(chamado.getNumero());
@@ -47,7 +49,7 @@ public class AdapterAbertos extends RecyclerView.Adapter<AdapterAbertos.MyViewHo
 
     @Override
     public int getItemCount() {
-        return abertos.getChamados().size();
+        return chamados.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
@@ -66,7 +68,7 @@ public class AdapterAbertos extends RecyclerView.Adapter<AdapterAbertos.MyViewHo
                     AbertosActivity activity = (AbertosActivity) v.getContext();
 
                     int position = getAdapterPosition();
-                    activity.chamarDetalhes(abertos.getChamados().get(position));
+                    activity.abrirChamado(chamados.get(position));
                 }
             });
         }

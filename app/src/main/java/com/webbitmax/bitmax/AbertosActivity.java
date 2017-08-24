@@ -21,6 +21,11 @@ import com.webbitmax.bitmax.model.Chamado;
 import com.webbitmax.bitmax.retrofit.ApiService;
 import com.webbitmax.bitmax.retrofit.RequestInterface;
 
+import java.util.List;
+
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmResults;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,6 +38,7 @@ public class AbertosActivity extends AppCompatActivity {
     ProgressBar progressBar;
     AdapterAbertos adapterAbertos;
     Abertos abertos;
+    Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,9 @@ public class AbertosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_abertos);
         getSupportActionBar().setTitle("Chamados");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Realm.setDefaultConfiguration(new RealmConfiguration.Builder(this).build());
+        realm = Realm.getDefaultInstance();
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
@@ -49,7 +58,17 @@ public class AbertosActivity extends AppCompatActivity {
         popularAbertos();
     }
 
-    private void popularAbertos() {
+
+    public void popularAbertos(){
+        RealmResults<Chamado> results = realm.where(Chamado.class).findAll();
+
+            adapterAbertos = new AdapterAbertos(results);
+            recyclerView.setAdapter(adapterAbertos);
+            getSupportActionBar().setSubtitle(results.size()+" abertos");
+
+    }
+
+    private void atualizar() {
 
         progressBar.setVisibility(View.VISIBLE);
         RequestInterface requestService = ApiService.getApiService();
@@ -60,12 +79,19 @@ public class AbertosActivity extends AppCompatActivity {
         call.enqueue(new Callback<Abertos>() {
             @Override
             public void onResponse(Call<Abertos> call, Response<Abertos> response) {
-                abertos = response.body();
-                adapterAbertos = new AdapterAbertos(abertos);
-                recyclerView.setAdapter(adapterAbertos);
+                Abertos apiAbertos = response.body();
+
+                realm.beginTransaction();
+                    realm.deleteAll();
+                    for(Chamado c : apiAbertos.getAbertos()){
+                        realm.copyToRealm(c);
+                    }
+                realm.commitTransaction();
+
+
                 progressBar.setVisibility(View.INVISIBLE);
 
-                getSupportActionBar().setSubtitle(abertos.getRegistros()+" abertos");
+                popularAbertos();
             }
 
             @Override
@@ -79,17 +105,20 @@ public class AbertosActivity extends AppCompatActivity {
         });
     }
 
-    public void chamarDetalhes(final Chamado chamado){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+    public void chamarDetalhes(Chamado chamado){
+        Intent it = new Intent(getApplicationContext(), DetalhesActivity.class);
+        it.putExtra("chamadoId", chamado.getId());
+        startActivity(it);
+    }
+
+    public void abrirChamado(final Chamado chamado){
+        AlertDialog.Builder builder = new AlertDialog.Builder(AbertosActivity.this);
         builder.setMessage("Deseja iniciar esse chamado?")
                 .setCancelable(false)
                 .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent it = new Intent(getApplicationContext(), DetalhesActivity.class);
-                        it.putExtra("chamado", chamado);
-                        startActivity(it);
-
+                       chamarDetalhes(chamado);
                     }
                 })
                 .setNegativeButton("Não", new DialogInterface.OnClickListener() {
@@ -99,9 +128,6 @@ public class AbertosActivity extends AppCompatActivity {
                     }
                 })
                 .show();
-
-
-
     }
 
     @Override
@@ -115,7 +141,7 @@ public class AbertosActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.menu_atualizar:
-                popularAbertos();
+                atualizar();
         }
 
         return super.onOptionsItemSelected(item);
