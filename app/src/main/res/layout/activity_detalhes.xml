@@ -56,7 +56,7 @@
                     android:layout_toRightOf="@+id/label_prazo"
                     android:fontFamily="sans-serif-thin"
                     android:padding="15dp"
-                    android:id="@+id/value_praz"
+                    android:id="@+id/value_prazo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="12/8/2017 13:15:50" />
@@ -282,6 +282,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="1MB / 800k Up / 1M Down" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:padding="15dp"
+                    android:id="@+id/label_mensagem"
+                    android:fontFamily="sans-serif-bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MEnsagem:" />
+
+                <TextView
+                    android:layout_toRightOf="@+id/label_mensagem"
+                    android:fontFamily="sans-serif-thin"
+                    android:padding="15dp"
+                    android:id="@+id/value_mensagem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
             </RelativeLayout>
 
         </LinearLayout>
