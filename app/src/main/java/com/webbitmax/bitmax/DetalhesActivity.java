@@ -35,8 +35,7 @@ public class DetalhesActivity extends AppCompatActivity {
 
         chamado = realm.where(Chamado.class).equalTo("suporte_id", id).findFirst();
 
-        getSupportActionBar().setTitle(chamado.getTecnico());
-        getSupportActionBar().setSubtitle("Id: "+chamado.getNumero());
+        getSupportActionBar().setTitle("Detalhe");
 
         tv_nome.setText(chamado.getCliente_nome());
         tv_endereco.setText(chamado.getCliente_endereco());
