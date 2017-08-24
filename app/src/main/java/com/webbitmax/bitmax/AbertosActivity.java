@@ -1,5 +1,7 @@
 package com.webbitmax.bitmax;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -77,11 +79,28 @@ public class AbertosActivity extends AppCompatActivity {
         });
     }
 
-    public void chamarDetalhes(Chamado chamado){
+    public void chamarDetalhes(final Chamado chamado){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+        builder.setMessage("Deseja iniciar esse chamado?")
+                .setCancelable(false)
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent it = new Intent(getApplicationContext(), DetalhesActivity.class);
+                        it.putExtra("chamado", chamado);
+                        startActivity(it);
 
-        Intent it = new Intent(getApplicationContext(), DetalhesActivity.class);
-        it.putExtra("chamado", chamado);
-        startActivity(it);
+                    }
+                })
+                .setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .show();
+
+
 
     }
 

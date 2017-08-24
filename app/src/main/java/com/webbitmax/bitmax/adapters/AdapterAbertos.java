@@ -63,26 +63,10 @@ public class AdapterAbertos extends RecyclerView.Adapter<AdapterAbertos.MyViewHo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    final AbertosActivity activity = (AbertosActivity) v.getContext();
-                    AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                    AbertosActivity activity = (AbertosActivity) v.getContext();
 
-                    builder.setMessage("Deseja iniciar esse chamado?")
-                            .setCancelable(false)
-                            .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    int position = getAdapterPosition();
-                                    activity.chamarDetalhes(abertos.getChamados().get(position));
-                                }
-                            })
-                            .setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.cancel();
-                                }
-                            })
-                            .show();
-
+                    int position = getAdapterPosition();
+                    activity.chamarDetalhes(abertos.getChamados().get(position));
                 }
             });
         }
