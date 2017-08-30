@@ -31,7 +31,7 @@ public interface RequestInterface {
 
     @FormUrlEncoded
     @POST("chamadosapi/abrir")
-    Call<String> abrirChamado(@Field("id") String id, @Field("data") String data);
+    Call<Resposta> abrirChamado(@Field("id") String id, @Field("data") String data);
 
     @FormUrlEncoded
     @POST("chmadasapi/fechar")
